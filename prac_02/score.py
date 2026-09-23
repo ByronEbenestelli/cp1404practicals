@@ -28,4 +28,5 @@ def determine_grade(score: float):
     return result
 
 
-main()
+if __name__ == "__main__":
+    main()
