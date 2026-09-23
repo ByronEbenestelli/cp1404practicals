@@ -1,7 +1,5 @@
 """Score Menu"""
 
-from score import determine_grade
-
 
 def main():
     print("(G)et a valid score (must be 0 - 100 inclusive)",
@@ -24,6 +22,8 @@ def main():
               "(S)how stars",
               "(Q)uit",
               sep="\n")
+        selection = input("Selection: ").upper()
+    "Goodbye!"
 
 
 main()
