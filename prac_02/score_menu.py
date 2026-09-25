@@ -3,6 +3,7 @@ from prac_02.score import determine_grade
 
 
 def main():
+    score = get_valid_score()
     print("(G)et a valid score (must be 0 - 100 inclusive)",
           "(P)rint result",
           "(S)how stars",
@@ -13,15 +14,9 @@ def main():
         if selection == "G":
             score = get_valid_score()
         elif selection == "P":
-            try:
-                print(determine_grade(score))
-            except NameError:
-                print("Please select score first.")
+            print(determine_grade(score))
         elif selection == "S":
-            try:
-                print("*" * score)
-            except NameError:
-                print("Please select score first.")
+            print("*" * score)
         else:
             print("Invalid selection. Try again.")
         print("(G)et a valid score (must be 0 - 100 inclusive)",
