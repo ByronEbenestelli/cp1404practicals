@@ -34,4 +34,5 @@ def convert_celsius_to_fahrenheit(celsius: float):
     return celsius * 9.0 / 5 + 32
 
 
-main()
+if __name__ == "__main__":
+    main()
