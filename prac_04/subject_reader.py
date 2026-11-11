@@ -8,13 +8,20 @@ FILENAME = "subject_data.txt"
 
 def main():
     """Program to load and display subject data from file."""
-    data = load_data(FILENAME)
-    print(data)
+    subjects = load_data(FILENAME)
+    display_subjects(subjects)
+
+
+def display_subjects(subjects):
+    """Display each subject in a list of lists of the form [subject name, lecturer, number 0f students]."""
+    for subject in subjects:
+        print(f"{subject[0]} is taught by {subject[1]} and has {subject[2]} students")
 
 
 def load_data(filename=FILENAME):
     """Read data from file formatted like: subject,lecturer,number of students."""
     input_file = open(filename)
+    subjects = []
     for line in input_file:
         print(line)  # See what a line looks like
         print(repr(line))  # See what a line really looks like
@@ -25,7 +32,9 @@ def load_data(filename=FILENAME):
         data = [parts[0], parts[1], int(parts[2])]
         print(data)  # See if that worked
         print("----------")
+        subjects.append(data)
     input_file.close()
+    return subjects
 
 
 main()
