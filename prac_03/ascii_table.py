@@ -16,7 +16,7 @@ def main():
     for i in range(LOWER, UPPER + 1):
         print(f"{i:>3}  {chr(i)}")
 
-    number_of_entries = UPPER - LOWER
+    number_of_entries = UPPER - LOWER + 1
     number_of_columns = int(input("How many columns: "))
     number_of_rows = math.ceil(number_of_entries / number_of_columns)
     print(number_of_rows)
