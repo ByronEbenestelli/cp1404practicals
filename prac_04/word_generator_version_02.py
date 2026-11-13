@@ -4,28 +4,33 @@ VOWELS = "aeiou"
 CONSONANTS = "bcdfghjklmnpqrstvwxyz"
 DETERMINER = "cv"
 
-word_format = input("Input word format where % is a consonant, # is a vowel and any alphabetical characters will "
-                    "be themselves. Example: %%ea%% could be greatly or hreajk: \n").lower()
-word = ""
-for kind in word_format:
-    if kind == "%":
-        word += random.choice(CONSONANTS)
-    elif kind == "#":
-        word += random.choice(VOWELS)
-    elif kind in VOWELS or kind in CONSONANTS:
-        word += kind
 
-print(word)
+def main():
+    word_format = input("Input word format where c is a consonant, v is a vowel and any alphabetical characters will "
+                        "be themselves. Example: cceacc could be greatly or hreajk: \n").lower()
+    while not is_valid_format(word_format):
+        print("Invalid format. Please try again.")
+        word_format = input(
+            "Input word format where c is a consonant, v is a vowel and any alphabetical characters will "
+            "be themselves. Example: cceacc could be greatly or hreajk: \n").lower()
 
-random_word_length = int(input("How long for random word? "))
-random_word_format = ""
-random_word = ""
-for i in range(random_word_length):
-    random_word_format += random.choice(DETERMINER)
-for kind in random_word_format:
-    if kind == "c":
-        random_word += random.choice(CONSONANTS)
-    else:
-        random_word += random.choice(VOWELS)
+    word = ""
+    for kind in word_format:
+        if kind == "c":
+            word += random.choice(CONSONANTS)
+        elif kind == "v":
+            word += random.choice(VOWELS)
+        elif kind in VOWELS or kind in CONSONANTS:
+            word += kind
 
-print(random_word)
+    print(word)
+
+
+def is_valid_format(word_format):
+    for letter in word_format:
+        if letter not in DETERMINER:
+            return False
+    return True
+
+
+main()
