@@ -33,9 +33,27 @@ def main():
         elif choice == "F":
             pass
         elif choice == "A":
-            pass
+            print("Let's add a new project")
+            name = input("Name: ")
+            start_date = input("Start date (dd/mm/yy): ")
+            priority = int(input("Priority: "))
+            cost = float(input("Cost estimate: $"))
+            percent_complete = int(input("Percent complete: "))
+            projects.append(Project(name, start_date, priority, cost, percent_complete))
         elif choice == "U":
-            pass
+            display_projects(projects, True)
+            project_choice = int(input("Project choice: "))
+            print(projects[project_choice])
+            try:
+                percentage = int(input("New percentage: "))
+                projects[project_choice].percent_complete = percentage
+            except ValueError:
+                pass
+            try:
+                priority = int(input("New priority: "))
+                projects[project_choice].priority = priority
+            except ValueError:
+                pass
         else:
             print("Invalid menu option! Try again!")
         display_menu()
@@ -59,9 +77,13 @@ def load_projects(filename):
     return projects
 
 
-def display_projects(projects):
-    for project in projects:
-        print(project)
+def display_projects(projects, with_index=False):
+    if with_index:
+        for index, project in enumerate(projects):
+            print(index, project)
+    else:
+        for project in projects:
+            print(project)
 
 
 main()
