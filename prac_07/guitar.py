@@ -23,6 +23,12 @@ class Guitar:
     def __str__(self):
         return f"{self.name} ({self.year}) : ${self.cost:,.2f}"
 
+    def __lt__(self, other):
+        if self.year < other.year:
+            return True
+        else:
+            return False
+
     def find_age(self):
         age = datetime.datetime.now().year - self.year
         return age
