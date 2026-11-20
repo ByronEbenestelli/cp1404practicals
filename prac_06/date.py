@@ -1,7 +1,6 @@
 """
 Date class
 """
-# TODO: Fix this program
 MONTHS_WITH_31_DAYS = [1, 3, 5, 7, 8, 10, 12]
 MONTHS_WITH_30_DAYS = [4, 6, 9, 11]
 MONTHS_WITH_28_DAYS = [2]
